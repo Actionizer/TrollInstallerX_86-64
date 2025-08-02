@@ -5,7 +5,7 @@ jobs:
   main:
     strategy:
       matrix:
-        arch: ["arm", "x86_64"]
+        arch: [arm, x86_64]
         os: [macos-latest]
 
     runs-on: ${{ matrix.os }}  
@@ -21,7 +21,7 @@ jobs:
       - name: Build
         run: |
           cd ${{ GITHUB.WORKSPACE }}
-          chmod 755 build.sh
+          chmod 755 build_${{ matrix.arch }}.sh
           ./build_${{ matrix.arch }}.sh
 
         
