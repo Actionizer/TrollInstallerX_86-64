@@ -16,7 +16,7 @@ jobs:
 
       - name: install the deps
         run: |
-          #brew install ldid
+          brew install ldid
 
       - name: Build
         run: |
