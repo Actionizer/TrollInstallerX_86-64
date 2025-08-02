@@ -3,20 +3,25 @@ on: [workflow_dispatch, push, pull_request]
 
 jobs:
   main:
-    name: Build
-    runs-on: macos-latest
+    strategy:
+      matrix:
+        arch: [arm, x86_64]
+        os: [macos-latest]
 
+    runs-on: ${{ matrix.os }}  
+    name: Build
+    
     steps:
       - uses: actions/checkout@v4
 
       - name: install the deps
         run: |
-          brew install ldid
+          #brew install ldid
 
       - name: Build
         run: |
           cd ${{ GITHUB.WORKSPACE }}
           chmod 755 build.sh
-          ./build.sh
+          ./build_${{ matrix.arch }}.sh
 
         
