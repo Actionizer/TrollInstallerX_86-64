@@ -9,6 +9,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: install the deps
+        run: |
+          brew install ldid
+
       - name: Build
         run: |
           cd ${{ GITHUB.WORKSPACE }}
