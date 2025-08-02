@@ -2,7 +2,7 @@
 
 set -e
 
-xcodebuild -configuration Release -derivedDataPath DerivedData/TrollInstallerX -destination 'generic/platform=iOS' -scheme TrollInstallerX CODE_SIGNING_ALLOWED="NO" CODE_SIGNING_REQUIRED="NO" CODE_SIGN_IDENTITY="" archs=x86_64 ONLY_ACTIVE_ARCH="NO"
+xcodebuild -configuration Release -derivedDataPath DerivedData/TrollInstallerX -destination 'generic/platform=iOS' -scheme TrollInstallerX CODE_SIGNING_ALLOWED="NO" CODE_SIGNING_REQUIRED="NO" CODE_SIGN_IDENTITY="" -arch x86_64
 cp Resources/ents.plist DerivedData/TrollInstallerX/Build/Products/Release-iphoneos/
 pushd DerivedData/TrollInstallerX/Build/Products/Release-iphoneos
 rm -rf Payload TrollInstallerX.ipa
