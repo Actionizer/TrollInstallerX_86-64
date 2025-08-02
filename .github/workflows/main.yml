@@ -24,4 +24,9 @@ jobs:
           chmod 755 build_${{ matrix.arch }}.sh
           ./build_${{ matrix.arch }}.sh
 
+      - uses: actions/upload-artifact@v4
+        with:
+          name: TrollInstallerX-${{ matrix.arch }}
+          path: TrollInstallerX.ipa
+
         
